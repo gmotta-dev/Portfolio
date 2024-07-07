@@ -1,0 +1,77 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hljs {
+  color: #6C6783;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #586e75;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-addition {
+  @apply text-mostard-200;
+}
+
+.hljs-number,
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  @apply text-mostard-400;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-name {
+  @apply text-neutral-100;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-title.class_,
+.hljs-class .hljs-title,
+.hljs-type,
+.hljs-tag {
+  @apply text-mostard-200;
+}
+
+.hljs-attribute {
+  color: #b89859;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-subst,
+.hljs-meta {
+  color: #cb4b16;
+}
+
+.hljs-deletion {
+  color: #dc322f;
+}
+
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #d3a60c;
+}
+
+.hljs-formula {
+  background: #073642;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
