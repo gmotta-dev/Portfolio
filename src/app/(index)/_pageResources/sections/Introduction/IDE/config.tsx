@@ -9,7 +9,7 @@ export const aboutMeChartData = [
   { subject: "Front End", A: 100, },
   { subject: "Design", A: 85, },
   { subject: "Play Elden Ring", A: 85, },
-  { subject: "Playing with AI", A: 65, },
+  { subject: "Playing with AI", A: 78, },
   { subject: "Back End", A: 86, },
 ];
 

@@ -6,7 +6,7 @@ import Email from "./Email";
 import nodemailer from "nodemailer";
 import { TToast } from "@/shared/components/Toast/types";
 
-const transporter = nodemailer.createTransport({ service: "gmail", auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASSWORD } });
+const transporter = nodemailer.createTransport({ service: "hotmail", auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASSWORD } });
 
 export default async function contactAction(req: z.infer<typeof contactFormSchema>): Promise<{ status: 200 | 500; toast: TToast }> {
   try {
@@ -18,7 +18,7 @@ export default async function contactAction(req: z.infer<typeof contactFormSchem
     const { renderToString } = await import("react-dom/server");
     const html = renderToString(Email(body));
 
-    const emailRes = await transporter.sendMail({ from: body.email, to: process.env.EMAIL_USER, subject: `Contato - ${body.email}`, html });
+    const emailRes = await transporter.sendMail({ from: process.env.EMAIL_USER, to: process.env.EMAIL_USER, subject: `Contato - ${body.email}`, html });
     console.log("\nEmail Response: ", emailRes);
     console.log("\nEND CONTACT ACTION <----------");
 

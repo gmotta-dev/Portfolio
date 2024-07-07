@@ -66,7 +66,7 @@ const groups: TGroup[] = [
     name: "Info",
     anchors: [
       { label: "Rio de Janeiro, Brazil", href: "about-me", icon: Location, type: "span" },
-      { label: "gmotta.developer@gmail.com", href: "mailto:gmotta.developer@gmail.com", icon: Email, type: "a" },
+      { label: "gmotta.dev@outlook.com", href: "mailto:gmotta.dev@outlook.com", icon: Email, type: "a" },
       { label: "+55 21 97426-4416", href: "tel:+5521974264416", icon: Phone, type: "a" },
     ],
   },

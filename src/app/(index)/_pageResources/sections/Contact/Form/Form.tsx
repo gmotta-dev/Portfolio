@@ -15,7 +15,7 @@ export default function Form() {
   const submit = async () => {
     const res = await contactAction(formStates.formValues);
     console.log(res);
-    toastStates.addToast(res.toast);
+    toastStates.addToast({...res.toast, time: 100000});
   };
 
   return (
