@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 import { TIDECurrView } from "../config";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Content(props: TIDECurrView) {
+export default function Code(props: TIDECurrView) {
   const [show, setShow] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
