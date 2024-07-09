@@ -4,7 +4,7 @@ export default function Bg(props: { className?: string }) {
   return (
   <div className={twMerge("overflow-hidden absolute inset-0 -z-10", props.className)}>
       <div className="absolute bottom-0 left-0 h-full w-full bg-[radial-gradient(circle,_rgba(0,0,0,0)_0%,_rgba(10,10,10,1)_100%)]" />
-      <svg width="1920" height="641" viewBox="0 0 1920 641" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+      <svg width="1920" height="641" viewBox="0 0 1920 641" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto">
         <mask id="path-1-inside-1_2200_273" fill="white">
           <path d="M0 0H1920V639H0V0Z" />
         </mask>

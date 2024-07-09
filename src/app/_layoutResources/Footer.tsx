@@ -1,6 +1,5 @@
 import ContentWrapper from "@/shared/components/ContentWrapper";
 import UserProfile from "@/shared/components/Icons/carbon/UserProfile";
-import Discord from "@/shared/components/Icons/Discord";
 import Email from "@/shared/components/Icons/Email";
 import Github from "@/shared/components/Icons/Github";
 import Linkedin from "@/shared/components/Icons/Linkedin";
