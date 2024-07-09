@@ -7,6 +7,7 @@ import { TIDECurrView } from "../config";
 import { AnimatePresence, motion } from "framer-motion";
 import "./pojoaque.css";
 
+
 export default function Code(props: TIDECurrView) {
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -41,13 +42,9 @@ const newStr = (
 \`\`\``;
 
 const CodeBlock = ({ children }: { children: React.ReactNode }) => {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [children]);
+  useEffect(() => Prism.highlightAll(), [children]);
 
   return (
-    <pre className={`language-javascript`}>
       <code className={`language-javascript`}>{children}</code>
-    </pre>
   );
 };
