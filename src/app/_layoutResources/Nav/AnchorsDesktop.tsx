@@ -10,7 +10,7 @@ export default function AnchorsDesktop() {
         </li>
       ))}
       <li className="border-l border-l-neutral-800 pl-12 text-neutral-400 transition-colors hover:text-neutral-200">
-        <a href="https://github.com/gmotta-dev" rel="noreferrer" target="_blank">
+        <a href="https://github.com/gmotta-dev" rel="noreferrer" target="_blank" aria-label="Github">
           <Github />
         </a>
       </li>

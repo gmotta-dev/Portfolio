@@ -32,7 +32,7 @@ const A = () => {
         </li>
       ))}
       <li className="flex w-1/2 items-center justify-center border-t border-t-neutral-800 pt-12 text-neutral-400">
-        <a href="https://github.com/gmotta-dev" rel="noreferrer" target="_blank">
+        <a href="https://github.com/gmotta-dev" rel="noreferrer" target="_blank" aria-label="Github">
           <Github />
         </a>
       </li>

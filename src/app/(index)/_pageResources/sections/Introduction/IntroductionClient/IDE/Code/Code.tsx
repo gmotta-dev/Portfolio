@@ -22,7 +22,7 @@ export default function Code(props: TIDECurrView) {
           className={twMerge("relative pl-8 transition-opacity duration-[800ms]")}>
           <ul className="absolute left-0 top-[1px] flex flex-col text-neutral-700">
             {[...new Array(22)].map((_, index) => (
-              <li key={index}>{index + 1}</li>
+              <li key={index} aria-hidden>{index + 1}</li>
             ))}
           </ul>
           <Markdown options={{ forceBlock: true, forceWrapper: true, overrides: { code: { component: CodeBlock } } }}>{newStr(props)}</Markdown>

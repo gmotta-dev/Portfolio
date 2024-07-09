@@ -50,11 +50,11 @@ const Card = (props: TCard) => {
         </span>
       </div>
       <p className="mt-2 max-w-[418px] text-sm text-neutral-400">{props.description}</p>
-      <div className="mt-auto flex flex-wrap gap-2">
+      <ul className="mt-auto flex flex-wrap gap-2">
         {props.tags.map((tag) => (
-          <Badge text={tag} />
+          <Badge el="li" text={tag} key={tag} />
         ))}
-      </div>
+      </ul>
     </li>
   );
 };

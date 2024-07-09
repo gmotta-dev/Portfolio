@@ -36,7 +36,7 @@ const ProjectItem: FC<TCard> = (props) => {
         <div className="mt-4 flex justify-between gap-3">
           <ul className="flex flex-wrap gap-2">
             {props.tags.map((i, key) => (
-              <Badge text={i} key={key} />
+              <Badge el="li" text={i} key={key} />
             ))}
           </ul>
           <small className="text-sm text-neutral-400 whitespace-nowrap">{props.date}</small>
