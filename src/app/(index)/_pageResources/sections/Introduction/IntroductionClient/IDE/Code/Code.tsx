@@ -1,8 +1,11 @@
+import Prism from "prismjs";
+
 import Markdown from "markdown-to-jsx";
 import React, { useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { TIDECurrView } from "../config";
 import { AnimatePresence, motion } from "framer-motion";
+import "./pojoaque.css";
 
 export default function Code(props: TIDECurrView) {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -21,7 +24,7 @@ export default function Code(props: TIDECurrView) {
               <li key={index}>{index + 1}</li>
             ))}
           </ul>
-          <Markdown options={{ forceBlock: true, forceWrapper: true }}>{newStr(props)}</Markdown>
+          <Markdown options={{ forceBlock: true, forceWrapper: true, overrides: { code: { component: CodeBlock } } }}>{newStr(props)}</Markdown>
         </motion.div>
       </AnimatePresence>
     </div>
@@ -30,9 +33,21 @@ export default function Code(props: TIDECurrView) {
 
 const newStr = (
   props: TIDECurrView,
-) => `\`\`\`jsx\n${props.ideContent.imports ? props.ideContent.imports.join("\n") + "\n\n" : ""}export default function ${props.ideContent.functionName}() {
+) => `\`\`\`\n${props.ideContent.imports ? props.ideContent.imports.join("\n") + "\n\n" : ""}export default function ${props.ideContent.functionName}() {
   return (
     ${props.previewContent}
   );
 }
 \`\`\``;
+
+const CodeBlock = ({ children }: { children: React.ReactNode }) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [children]);
+
+  return (
+    <pre className={`language-javascript`}>
+      <code className={`language-javascript`}>{children}</code>
+    </pre>
+  );
+};
