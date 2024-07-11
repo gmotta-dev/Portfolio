@@ -25,8 +25,8 @@ type TItem = { label: string; icon?: React.ElementType; className?: string };
 const items: TItem[] = [
   { label: "main", icon: Branch },
   { label: "0", icon: MinusOutline },
-  { label: "4", icon: WarningAlt },
-  { label: "1", icon: Warning },
+  { label: "0", icon: WarningAlt },
+  { label: "2", icon: Warning },
 ];
 const Item = (props: TItem) => {
   return (
