@@ -1,23 +1,27 @@
 import Link from "next/link";
 import ExpandableContent from "./ExpandableContent";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import Badge from "@/shared/components/Badge";
 import Github from "@/shared/components/Icons/Github";
 import LinkAlt from "@/shared/components/Icons/LinkAlt";
 import CustomImage from "@/shared/components/CustomImage";
 import { twMerge } from "tailwind-merge";
+import ProjectsDesktop from "./ProjectsDesktop/ProjectsDesktop";
 
 // All the content in this File in rendered on the Server due to how Next js and React handle the hydration process
 // Only the Files inside the ExpandableContent component are hydrated on the Client
 export default function Projects() {
   return (
-    <ExpandableContent>
-      <ul className="flex flex-col gap-10">
-        {projectItemsOpts.map((i, key) => (
-          <ProjectItem {...i} key={key} />
-        ))}
-      </ul>
-    </ExpandableContent>
+    <section id="projects" className="relative mt-14 pb-20 pt-10 lg:mt-48">
+      <ExpandableContent>
+        <ul className="flex flex-col gap-10">
+          {projectItemsOpts.map((i, key) => (
+            <ProjectItem {...i} key={key} />
+          ))}
+        </ul>
+      </ExpandableContent>
+      <ProjectsDesktop />
+    </section>
   );
 }
 
@@ -28,18 +32,18 @@ const ProjectItem: FC<TCard> = (props) => {
       <CustomImage width={682} height={317} src={props.image} alt={props.name} className="grayscale md:min-w-[320px] lg:max-w-[486px]" />
       <div className="flex w-full flex-col">
         <div className="flex items-start gap-4">
-          <h2 className="font-bebas-neue text-3xl lg:text-5xl tracking-wide">{props.name}</h2>
+          <h2 className="font-bebas-neue text-3xl tracking-wide lg:text-5xl">{props.name}</h2>
           <ProjectItemLinkIcon href={props.repo} icon={Github} name="Repo" className="ml-auto" />
           <ProjectItemLinkIcon href={props.liveWebsite} icon={LinkAlt} name="Live Website" className="mt-[1px]" />
         </div>
-        <p className="text-sm mt-1 lg:text-base text-neutral-400">{props.description}</p>
+        <p className="mt-1 text-sm text-neutral-400 lg:text-base">{props.description}</p>
         <div className="mt-4 flex justify-between gap-3">
           <ul className="flex flex-wrap gap-2">
             {props.tags.map((i, key) => (
               <Badge el="li" text={i} key={key} />
             ))}
           </ul>
-          <small className="text-sm text-neutral-400 whitespace-nowrap">{props.date}</small>
+          <small className="whitespace-nowrap text-sm text-neutral-400">{props.date}</small>
         </div>
       </div>
     </li>
@@ -60,7 +64,7 @@ const projectItemsOpts: TCard[] = [
     name: "Portfolio V2",
     description:
       "A new version of my portfolio built with Next.js 14 and Tailwind CSS. I utilized AWS services like S3 and CloudFront for asset storage and delivery, and RDS for database management.",
-    tags: ["React", "Typescript", "Tailwind", "AWS", 'Figma'],
+    tags: ["React", "Typescript", "Tailwind", "AWS", "Figma"],
     date: "01 / 08 / 2024",
     repo: "https://github.com/gmotta-dev/Portfolio-V2",
     liveWebsite: "https://portfolio-kappa-azure-76.vercel.app/",
@@ -97,8 +101,7 @@ const projectItemsOpts: TCard[] = [
   },
   {
     name: "Spacejet",
-    description:
-      "Spacejet is one of my first projects using REST APIs, utilizing the NASA API to fetch space-related images and data.",
+    description: "Spacejet is one of my first projects using REST APIs, utilizing the NASA API to fetch space-related images and data.",
     tags: ["HTML", "CSS", "Typescript", "SASS"],
     date: "05/22/2022",
     repo: "https://github.com/gmotta-dev/Spacejet",
@@ -107,8 +110,7 @@ const projectItemsOpts: TCard[] = [
   },
   {
     name: "Bella Italia",
-    description:
-      "Bella Italia is a landing page for an Italian restaurant. This project helped me improve my design skills and knowledge of Italian cuisine.",
+    description: "Bella Italia is a landing page for an Italian restaurant. This project helped me improve my design skills and knowledge of Italian cuisine.",
     tags: ["HTML", "CSS", "Javascript"],
     date: "02/17/2022",
     repo: "https://github.com/gmotta-dev/Bella-Italia",

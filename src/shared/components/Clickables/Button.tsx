@@ -8,9 +8,9 @@ export default function Button({ stylization: stylizationProp, ...props }: Compo
   const icon = stylizationProp?.icon && { el: stylizationProp.icon.loading ? ProgressBarRound : stylizationProp.icon.el };
 
   return (
-    <button {...props} className={twMerge(st, "flex items-center justify-center gap-4", props.className)}>
+    <button {...props} className={twMerge(st.className, "flex items-center justify-center gap-4", props.className)}>
       {props.children}
-      {icon && <icon.el className="h-6 w-6" />}
+      {icon && <icon.el className={st.iconClassName} />}
     </button>
   );
 }

@@ -1,7 +1,7 @@
 /** @typedef  {import("prettier").Config} PrettierConfig */
 /** @type { PrettierConfig | SortImportsConfig } */
 const config = {
-  printWidth: 180,
+  printWidth: 200,
   bracketSpacing: true,
   jsxBracketSameLine: true,
   importOrderTypeScriptVersion: "4.4.0",

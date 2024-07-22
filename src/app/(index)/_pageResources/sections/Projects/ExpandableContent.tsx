@@ -9,7 +9,7 @@ export default function ExpandableContent(props: { children: ReactNode; classNam
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section id="projects" className="relative pb-20 mt-14 pt-10 lg:mt-48">
+    <section id="projects" className="relative pb-20 mt-14 pt-10 lg:mt-48 lg:hidden">
       <div className="absolute left-0 top-0 hidden h-full w-full max-w-[26%] items-start justify-start bg-neutral-900 py-16 min-[1620px]:flex">
         <h2 className="sticky left-[4%] top-12 -mt-10 pt-10 font-bebas-neue text-9xl tracking-widest text-mostard-50 [writing-mode:vertical-lr]">PROJECTS</h2>
       </div>

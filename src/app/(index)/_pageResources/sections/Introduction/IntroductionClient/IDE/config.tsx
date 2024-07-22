@@ -56,16 +56,7 @@ export const config: TIDECurrView[] = [
       <h4 className="font-bebas-neue text-sm tracking-widest text-neutral-400">
         A bit about me
       </h4>
-      <div className="px-5 w-full h-[350px] md:h-[500px]  lg:-translate-y-5">
-        <ResponsiveContainer width="100%" height="100%" className='[&_.recharts-polar-angle-axis-tick:nth-of-type(4)]:translate-y-4'>
-        <RadarChart cx="50%" cy="50%" outerRadius="80%" data={aboutMeChartData}>
-          <PolarGrid />
-          <PolarAngleAxis dataKey="subject" />
-          <PolarRadiusAxis />
-          <Radar name="Mike" dataKey="A" stroke="#FFDB58" fill="#FFDB58" />
-        </RadarChart>
-        </ResponsiveContainer>
-      </div>
+      
     </header>`,
   },
 ];

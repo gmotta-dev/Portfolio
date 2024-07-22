@@ -1,26 +1,9 @@
-import { Bebas_Neue, Poppins } from "next/font/google";
-
 import "./globals.css";
+import localFont from "@next/font/local";
 
 import React from "react";
 import Footer from "./_layoutResources/Footer";
 import Nav from "./_layoutResources/Nav/Nav";
-
-const poppins = Poppins({
-  weight: ["400", "500", "600", "800", "700", "900"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--Poppins",
-});
-
-const bebasNeue = Bebas_Neue({
-  weight: ["400"],
-  style: ["normal"],
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--Bebas-Neue",
-});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,3 +16,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+const poppins = localFont({
+  src: [
+    { path: "../../public/fonts/Poppins/Poppins-Light.ttf", weight: "300" },
+    { path: "../../public/fonts/Poppins/Poppins-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/Poppins/Poppins-Medium.ttf", weight: "500" },
+    { path: "../../public/fonts/Poppins/Poppins-SemiBold.ttf", weight: "600" },
+    { path: "../../public/fonts/Poppins/Poppins-Bold.ttf", weight: "700" },
+  ],
+  variable: "--Poppins",
+});
+
+const bebasNeue = localFont({ src: [{ path: "../../public/fonts/Bebas_Neue/BebasNeue-Regular.ttf", weight: "400" }], variable: "--Bebas-Neue" });

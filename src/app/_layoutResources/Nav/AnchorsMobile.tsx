@@ -18,7 +18,7 @@ export default function AnchorsMobile() {
   return (
     <Fragment>
       <Hamburger onClick={handleClick} expanded={drawerStates.drawerContent !== null} className="ml-auto md:hidden" />
-      <Drawer {...drawerStates} stylization={{ theme: "dark" }} />
+      <Drawer {...drawerStates} />
     </Fragment>
   );
 }
