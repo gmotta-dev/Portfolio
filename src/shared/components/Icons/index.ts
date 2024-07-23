@@ -16,5 +16,10 @@ export { default as Minimize } from "./carbon/Minimize";
 export { default as WarningAlt } from "./carbon/WarningAlt";
 export { default as MinusOutline } from "./carbon/MinusOutline";
 export { default as Branch } from "./carbon/Branch";
+export { default as Github } from "./carbon/Github";
+export { default as LinkAlt } from "./LinkAlt";
+export { default as File } from "./carbon/File";
+export { default as Search } from "./carbon/Search";
+export { default as ArrowDown } from "./carbon/ArrowDown";
 
 

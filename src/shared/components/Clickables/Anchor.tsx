@@ -6,9 +6,9 @@ export default function Anchor({ stylization: stylizationProp, ...props }: Compo
   const st = clickableStylization(stylizationProp);
 
   return (
-    <a {...props} className={twMerge(st, "flex items-center justify-center gap-4", props.className)}>
+    <a {...props} className={twMerge(st.className, "flex items-center justify-center gap-4", props.className)}>
       {props.children}
-      {stylizationProp?.icon && <stylizationProp.icon.el className="h-6 w-6" />}
+      {stylizationProp?.icon && <stylizationProp.icon.el className={st.iconClassName} />}
     </a>
   );
 }

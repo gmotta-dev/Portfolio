@@ -5,7 +5,7 @@ import useDrawer from "@/shared/components/Drawer/useDrawer";
 import Hamburger from "@/shared/components/Hamburguer";
 import { Fragment } from "react";
 import anchorsConfig from "./anchorsConfig";
-import Github from "@/shared/components/Icons/Github";
+import Github from "@/shared/components/Icons/carbon/Github";
 
 export default function AnchorsMobile() {
   const drawerStates = useDrawer();
@@ -18,7 +18,7 @@ export default function AnchorsMobile() {
   return (
     <Fragment>
       <Hamburger onClick={handleClick} expanded={drawerStates.drawerContent !== null} className="ml-auto md:hidden" />
-      <Drawer {...drawerStates} stylization={{ theme: "dark" }} />
+      <Drawer {...drawerStates} />
     </Fragment>
   );
 }

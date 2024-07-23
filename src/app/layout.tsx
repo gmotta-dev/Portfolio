@@ -5,6 +5,7 @@ import "./globals.css";
 import React from "react";
 import Footer from "./_layoutResources/Footer";
 import Nav from "./_layoutResources/Nav/Nav";
+import UmamiScript from "./_layoutResources/UmamiScript";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "800", "700", "900"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         {children}
         <Footer />
+        <UmamiScript />
       </body>
     </html>
   );

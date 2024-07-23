@@ -1,7 +1,7 @@
 import ContentWrapper from "@/shared/components/ContentWrapper";
 import UserProfile from "@/shared/components/Icons/carbon/UserProfile";
 import Email from "@/shared/components/Icons/Email";
-import Github from "@/shared/components/Icons/Github";
+import Github from "@/shared/components/Icons/carbon/Github";
 import Linkedin from "@/shared/components/Icons/Linkedin";
 import Location from "@/shared/components/Icons/Location";
 import MyLogo from "@/shared/components/Icons/MyLogo";
@@ -9,7 +9,7 @@ import Phone from "@/shared/components/Icons/Phone";
 
 export default function Footer() {
   return (
-    <ContentWrapper element="footer" className="py-32">
+    <ContentWrapper element="footer" className="pb-32 pt-48 md:pt-64">
       <div className="flex flex-col gap-16">
         <div className="flex flex-wrap justify-between gap-4">
           <MyLogo className="h-[128px] w-[112px]" />

@@ -1,4 +1,4 @@
-import Github from "@/shared/components/Icons/Github";
+import Github from "@/shared/components/Icons/carbon/Github";
 import anchorsConfig from "./anchorsConfig";
 
 export default function AnchorsDesktop() {
