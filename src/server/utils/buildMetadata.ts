@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 const buildMetadata = (props: TMetadata) => {
-  const chosenImg = props.loaderOG || "SEO-main.webp";
+  const chosenImg = props.loaderOG || "seo-default.webp";
   const loader = process.env.NEXT_PUBLIC_CLOUDFRONT_URL;
 
   const images = [{ url: `${loader}/images/${chosenImg}`, width: 1000, height: 800 }];
