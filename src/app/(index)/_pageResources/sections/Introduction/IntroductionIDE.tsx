@@ -10,7 +10,7 @@ import { twMerge } from "tailwind-merge";
 
 export default function IntroductionIDE() {
   return (
-    <IDEWrapper classNames={{ container: "lg:max-w-[597px] min-w-0 w-full" }}>
+    <IDEWrapper classNames={{ container: "lg:max-w-[597px] min-w-0 w-full h-[480px]" }}>
       <Tabs tabs={[{ label: "Introduction", icon: React }]} />
       <div className={twMerge("relative overflow-hidden bg-neutral-950 pl-8 transition-opacity")}>
         <MDXRemote source={newStr(introductionMdx)} components={{ code: CodeBlock }} />

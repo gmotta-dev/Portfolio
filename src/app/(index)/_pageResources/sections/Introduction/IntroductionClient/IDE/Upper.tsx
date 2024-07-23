@@ -22,5 +22,5 @@ export default function Upper() {
   );
 }
 
-const anchors = ["</>", "File", "Selection", "View", "Go", "Run", "Terminal", "Help"];
+const anchors = ["</>", "File", "Edit", "View", "Go", "Run", "Help"];
 const actions = [Minimize, PopUp, Close];
