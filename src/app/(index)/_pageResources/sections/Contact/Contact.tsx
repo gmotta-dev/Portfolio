@@ -9,6 +9,7 @@ export default function Contact() {
           <h5 className="text-center font-bebas-neue text-2xl md:max-w-[312px] md:text-left md:text-4xl">
             GOT ANY IDEAS? <br /> OR JUST WANT TO CHAT?
           </h5>
+          
           <Form />
 
           <div className="absolute left-1/2 top-1/2 z-[-1] -translate-x-1/2 -translate-y-1/2">

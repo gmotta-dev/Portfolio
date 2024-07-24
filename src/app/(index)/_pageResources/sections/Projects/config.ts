@@ -13,8 +13,7 @@ export const projectsConfigs: TProjectConfig[] = [
     name: "This Portfolio",
     releaseDate: " 07 / 25 / 2023",
     backgroundImg: "portfolio-v3-bg.webp",
-    description:
-      "My goal for this Portfolio was to learn Docker, and also self host a Next js Website using Coolify, which is basically a self-hosted alternative to Vercel.",
+    description: "My goal for this Portfolio was to learn Docker, and also self-host a Next.js Website using Coolify, which is a way to have your own Vercel in a VPS.",
     liveWebsite: "https://gmotta.com",
     repo: "https://github.com/gmotta-dev/Portfolio",
     thumbImg: "portfolio-v3-thumb.webp",
@@ -31,7 +30,7 @@ export const projectsConfigs: TProjectConfig[] = [
     name: "Varos Blog",
     releaseDate: " 01 / 02 / 2023",
     backgroundImg: "varos-blog-bgg.webp",
-    description: "As the lead developer, I was responsible for the entire development of the blog, from the development to the infrastructure which uses AWS and MySQL.",
+    description: "As the lead developer, I was responsible for creating the blog, handling everything from development to infrastructure, utilizing AWS and MySQL.",
     liveWebsite: "https://varos.com.br/blog",
     thumbImg: "varos-blog-thumb.webp",
     skills: [
@@ -65,7 +64,7 @@ export const projectsConfigs: TProjectConfig[] = [
     repo: "https://github.com/gmotta-dev/Portfolio-Old",
     liveWebsite: "https://gabrielp.netlify.app/",
     thumbImg: "projects-portfolio-v1.webp",
-    description: "My first project using React, which helped me build the skills I have today. I used Netlify for hosting, Email js for sending emails and Styled Components.",
+    description: "My Portfolio using React, which helped me build the skills I have today. I used Netlify for hosting, Email js for sending emails and Styled Components.",
     skills: [
       { name: "React", point: 100 },
       { name: "Figma", point: 80 },

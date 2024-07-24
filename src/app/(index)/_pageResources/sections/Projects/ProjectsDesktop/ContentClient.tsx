@@ -54,11 +54,9 @@ const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; conten
 
   return (
     <div className="w-full max-w-[250px] border-r border-r-neutral-700 bg-neutral-900">
-      <ul className="flex justify-center gap-2 border-y border-neutral-700 bg-neutral-800 py-[6px]">
+      <ul className="flex justify-center border-y border-neutral-700 gap-6 bg-neutral-800 py-[6px]">
         {[File, Branch, Search, ArrowDown].map((Icon, index) => (
-          <li key={index} className="flex items-center gap-2 px-4 text-sm text-neutral-400 transition-colors">
-            <Icon className="h-5 w-5" />
-          </li>
+          <Icon key={index} className={twMerge("h-5 w-5 cursor-pointer text-neutral-500 transition-colors hover:text-neutral-200", index === 0 && "text-neutral-200")} />
         ))}
       </ul>
       <p className="flex w-full items-center gap-2 bg-neutral-700 px-3 py-2 text-sm text-neutral-400">
@@ -86,11 +84,18 @@ const Content = (props: TProjectConfig) => {
   return (
     <motion.div key={props.name} animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} className="w-full tracking-wider">
       <div className="relative flex h-[300px] items-end px-8 py-4">
-        <div className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale filter" style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/images/${props.backgroundImg})` }} />
+        <div
+          className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale filter"
+          style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/images/${props.backgroundImg})` }}
+        />
         <div className="z-10 flex w-full items-center justify-between">
-          <h3 className="relative font-bebas-neue text-[80px] leading-[64px] font-bold tracking-widest text-mostard-300">{props.name}</h3>
+          <h3 className="relative font-bebas-neue text-[80px] font-bold leading-[64px] tracking-widest text-mostard-300">{props.name}</h3>
           <div className="mt-8 flex max-w-[320px] flex-1 gap-4">
-            <Anchor href={props.repo} target="_blank" className={twMerge("flex-1", props.repo ? "opacity-100" : "opacity-50 cursor-not-allowed")} stylization={{ theme: "primary", size: "sm", icon: { el: Github } }}>
+            <Anchor
+              href={props.repo}
+              target="_blank"
+              className={twMerge("flex-1", props.repo ? "opacity-100" : "cursor-not-allowed opacity-50")}
+              stylization={{ theme: "primary", size: "sm", icon: { el: Github } }}>
               Repo
             </Anchor>
             <Anchor href={props.liveWebsite} target="_blank" className="flex-1" stylization={{ theme: "primary", size: "sm", icon: { el: LinkAlt } }}>

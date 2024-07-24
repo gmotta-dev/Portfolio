@@ -5,27 +5,28 @@ import contactFormSchema from "./schema";
 import Email from "./Email";
 import nodemailer from "nodemailer";
 import { TToast } from "@/shared/components/Toast/types";
+import customLog from "@/shared/util/custom-logs";
 
 const transporter = nodemailer.createTransport({ service: "hotmail", auth: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASSWORD } });
 
 export default async function contactAction(req: z.infer<typeof contactFormSchema>): Promise<{ status: 200 | 500; toast: TToast }> {
   try {
-    console.log("START CONTACT ACTIONN ---------->");
+    customLog.startLogProcess("START CONTACT ACTION");
 
     const body = contactFormSchema.parse(req);
-    console.log("\nBody: ", body);
+    customLog.debug("Body: ", body);
 
     const { renderToString } = await import("react-dom/server");
     const html = renderToString(Email(body));
 
     const emailRes = await transporter.sendMail({ from: process.env.EMAIL_USER, to: process.env.EMAIL_USER, subject: `Contato - ${body.email}`, html });
-    console.log("\nEmail Response: ", emailRes);
-    console.log("\nEND CONTACT ACTION <----------");
+    customLog.debug("Email Response: ", emailRes);
+    customLog.endLogProcess("END CONTACT ACTION");
 
     return { status: 200, toast: { title: "Email Sent", description: "I'll get back to you soon", stylization: { variant: "success" } } };
   } catch (error) {
-    console.log("\nError: ", error);
-    console.log("\nEND CONTACT ACTION <----------");
+    customLog.error("Error: ", error);
+    customLog.endLogProcess("END CONTACT ACTION");
 
     return { status: 500, toast: { title: "Oops!", description: "Something went wrong", stylization: { variant: "error" } } };
   }
