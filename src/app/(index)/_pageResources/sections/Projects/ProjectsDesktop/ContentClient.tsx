@@ -10,8 +10,8 @@ import Anchor from "@/shared/components/Clickables/Anchor";
 import { projectsConfigs, TProjectConfig } from "../config";
 
 export default function ContentClient() {
-  const [tabs, setTabs] = useState<TTab[]>([{ icon: React, label: projectsConfigs[0].name }]);
-  const [content, setContent] = useState<TProjectConfig>(projectsConfigs[0]);
+  const [tabs, setTabs] = useState<TTab[]>([{ icon: React, label: projectsConfigs[1].name }]);
+  const [content, setContent] = useState<TProjectConfig>(projectsConfigs[1]);
 
   const onCloseTab = (currTab: TTab) => {
     if (tabs.length === 1) return;
@@ -45,8 +45,11 @@ export default function ContentClient() {
 }
 
 const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; content: TProjectConfig; setContent: (content: TProjectConfig) => void }) => {
+  const [hasClicked, setHasClicked] = useState(false);
+
   const handleAddTab = (tab: TProjectConfig) => {
     props.setContent(tab);
+    setHasClicked(true);
 
     if (props.tabs.some((t) => t.label === tab.name)) return;
     props.setTabs([...props.tabs, { icon: React, label: tab.name }]);
@@ -54,7 +57,7 @@ const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; conten
 
   return (
     <div className="w-full max-w-[250px] border-r border-r-neutral-700 bg-neutral-900">
-      <ul className="flex justify-center border-y border-neutral-700 gap-6 bg-neutral-800 py-[6px]">
+      <ul className="flex justify-center gap-6 border-y border-neutral-700 bg-neutral-800 py-[6px]">
         {[File, Branch, Search, ArrowDown].map((Icon, index) => (
           <Icon key={index} className={twMerge("h-5 w-5 cursor-pointer text-neutral-500 transition-colors hover:text-neutral-200", index === 0 && "text-neutral-200")} />
         ))}
@@ -68,7 +71,8 @@ const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; conten
           <li
             className={twMerge(
               "flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-neutral-400 transition-colors",
-              props.content.name === file.name ? "bg-neutral-950" : "hover:bg-neutral-950/50",
+              props.content.name === file.name ? "bg-mostard-300 text-neutral-950" : "hover:bg-neutral-950/50",
+              !hasClicked && props.content.name === file.name ? "animate-pulse" : "",
             )}
             onClick={() => handleAddTab(file)}>
             <React className="h-4 w-4" />
@@ -104,7 +108,12 @@ const Content = (props: TProjectConfig) => {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-between px-12 py-4">
+      <motion.div
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, offset: 500, y: 0 }}
+        initial={{ opacity: 0, offset: 500, y: 100 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex min-h-[320px] items-center justify-between px-12 py-4">
         <div className="w-full max-w-[467px] border-r border-neutral-800 py-8 pr-12">
           <p className="text-neutral-50">
             <span className="font-medium">Project Name:</span> <span className="text-neutral-400">{props.name}</span>
@@ -126,7 +135,7 @@ const Content = (props: TProjectConfig) => {
             </RadarChart>
           </ResponsiveContainer>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

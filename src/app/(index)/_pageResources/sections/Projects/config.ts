@@ -10,6 +10,21 @@ export type TProjectConfig = {
 };
 export const projectsConfigs: TProjectConfig[] = [
   {
+    name: "Varos Blog",
+    releaseDate: " 01 / 02 / 2023",
+    backgroundImg: "varos-blog-bgg.webp",
+    description: "As the lead developer, I was responsible for creating the blog, handling everything from development to infrastructure, using AWS and MySQL.",
+    liveWebsite: "https://varos.com.br/blog",
+    thumbImg: "varos-blog-thumb.webp",
+    skills: [
+      { name: "Next.js", point: 100 },
+      { name: "MySQL", point: 82 },
+      { name: "Typescript", point: 100 },
+      { name: "AWS", point: 75 },
+      { name: "Tailwind", point: 100 },
+    ],
+  },
+  {
     name: "This Portfolio",
     releaseDate: " 07 / 25 / 2023",
     backgroundImg: "portfolio-v3-bg.webp",
@@ -24,21 +39,6 @@ export const projectsConfigs: TProjectConfig[] = [
       { name: "AWS", point: 80 },
       { name: "Tailwind", point: 100 },
       { name: "Docker", point: 70 },
-    ],
-  },
-  {
-    name: "Varos Blog",
-    releaseDate: " 01 / 02 / 2023",
-    backgroundImg: "varos-blog-bgg.webp",
-    description: "As the lead developer, I was responsible for creating the blog, handling everything from development to infrastructure, utilizing AWS and MySQL.",
-    liveWebsite: "https://varos.com.br/blog",
-    thumbImg: "varos-blog-thumb.webp",
-    skills: [
-      { name: "Next.js", point: 100 },
-      { name: "MySQL", point: 82 },
-      { name: "Typescript", point: 100 },
-      { name: "AWS", point: 75 },
-      { name: "Tailwind", point: 100 },
     ],
   },
   {
@@ -125,7 +125,7 @@ export const projectsConfigs: TProjectConfig[] = [
     backgroundImg: "spacejet-bg.webp",
     repo: "https://github.com/gmotta-dev/Spacejet",
     liveWebsite: "https://spacejet.netlify.app/",
-    description: "Spacejet is one of my first projects using REST APIs, utilizing the NASA API to fetch space-related images and data.",
+    description: "Spacejet is one of my first projects using REST APIs, using the NASA API to fetch space-related images and data.",
     skills: [
       { name: "JS", point: 100 },
       { name: "HTML", point: 100 },

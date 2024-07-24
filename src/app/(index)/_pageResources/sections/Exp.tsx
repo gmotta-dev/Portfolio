@@ -41,7 +41,7 @@ const Card = (props: TCard) => {
         {props.title} -
         <span className="ml-1 text-mostard-300">
           {props.label.type === "anchor" ? (
-            <a href={props.label.href} className="flex">
+            <a href={props.label.href} className="flex" target="_blank" rel="noreferrer">
               {props.label.text} <Link className="ml-2 h-5 w-5" />
             </a>
           ) : (

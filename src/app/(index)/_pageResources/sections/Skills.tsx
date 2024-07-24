@@ -9,7 +9,7 @@ export default function Skills() {
     <ContentWrapper id="skills" element="section" className="relative pt-24 md:pt-32">
       <h2 className="font-bebas-neue text-7xl md:text-8xl lg:text-9xl">Skills</h2>
       <p className="text-neutral-400 md:max-w-[453px]">
-        From HTML, CSS, and JavaScript, to tools like React, Next.js, and Tailwind CSS, I utilize core web technologies to create outstanding digital experiences.
+        From HTML, CSS, and JavaScript, to tools like React, Next.js, and Tailwind CSS, I use core web technologies to create outstanding digital experiences.
       </p>
       <ul className="mt-16 flex flex-wrap">
         {icons.map((icon, index) => (
