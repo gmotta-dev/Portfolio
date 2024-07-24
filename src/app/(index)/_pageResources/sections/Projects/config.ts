@@ -20,7 +20,7 @@ export const projectsConfigs: TProjectConfig[] = [
       { name: "Next.js", point: 100 },
       { name: "MySQL", point: 82 },
       { name: "Typescript", point: 100 },
-      { name: "AWS", point: 75 },
+      { name: "AWS", point: 80 },
       { name: "Tailwind", point: 100 },
     ],
   },
@@ -34,7 +34,7 @@ export const projectsConfigs: TProjectConfig[] = [
     thumbImg: "portfolio-v3-thumb.webp",
     skills: [
       { name: "Next.js", point: 100 },
-      { name: "Figma", point: 87 },
+      { name: "Figma", point: 90 },
       { name: "Typescript", point: 100 },
       { name: "AWS", point: 80 },
       { name: "Tailwind", point: 100 },
@@ -54,7 +54,7 @@ export const projectsConfigs: TProjectConfig[] = [
       { name: "Typescript", point: 100 },
       { name: "Tailwind CSS", point: 100 },
       { name: "Figma", point: 90 },
-      { name: "AWS", point: 75 },
+      { name: "AWS", point: 80 },
     ],
   },
   {
@@ -67,7 +67,7 @@ export const projectsConfigs: TProjectConfig[] = [
     description: "My Portfolio using React, which helped me build the skills I have today. I used Netlify for hosting, Email js for sending emails and Styled Components.",
     skills: [
       { name: "React", point: 100 },
-      { name: "Figma", point: 80 },
+      { name: "Figma", point: 90 },
       { name: "Styled Components", point: 85 },
       { name: "Typescript", point: 100 },
     ],
@@ -100,7 +100,7 @@ export const projectsConfigs: TProjectConfig[] = [
       { name: "HTML", point: 100 },
       { name: "JS", point: 100 },
       { name: "SASS", point: 100 },
-      { name: "Figma", point: 80 },
+      { name: "Figma", point: 90 },
       { name: "Typescript", point: 100 },
     ],
   },
@@ -129,7 +129,7 @@ export const projectsConfigs: TProjectConfig[] = [
     skills: [
       { name: "JS", point: 100 },
       { name: "HTML", point: 100 },
-      { name: "SASS", point: 90 },
+      { name: "SASS", point: 100 },
       { name: "Rest APIs", point: 100 },
     ],
   },
