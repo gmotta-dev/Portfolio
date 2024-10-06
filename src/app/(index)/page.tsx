@@ -1,12 +1,10 @@
 import Main from "@/shared/components/Main";
 import * as Sections from "./_pageResources/sections";
 import buildMetadata from "@/server/utils/buildMetadata";
-import Editor from "@/shared/components/Editor";
 
 export default function Home() {
   return (
     <Main>
-      <Editor />
       <Sections.Introduction />
       <Sections.Skills />
       <Sections.Exp />

@@ -3,6 +3,7 @@ import { Parser, DomHandler } from "htmlparser2";
 import { Element } from "domhandler";
 import Anchor from "./Clickables/Anchor";
 import CustomImage from "./CustomImage";
+import { Github } from "./Icons";
 
 const voidElements = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
 
@@ -26,9 +27,11 @@ const parseHtmlToReact = (html: string) => {
           return <Tag key={index} {...props} />;
         }
 
-        if (Tag === "a") {
+        if (Tag === "a" && props["data-component"] === "Anchor") {
+          console.log(props);
+          
           return (
-            <Anchor key={index} {...props}>
+            <Anchor key={index} {...props} stylization={{ theme: "secondary", icon: { el: Github } }}>
               {convertDomToReact(node.children as Element[])}
             </Anchor>
           );
