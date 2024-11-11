@@ -8,6 +8,11 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "react-is": "^19.0.0-rc-ed15d500-20241110",
+    "react": "^19.0.0-rc-ed15d500-20241110",
+    "react-dom": "^19.0.0-rc-ed15d500-20241110"
+  },
   "dependencies": {
     "@next/font": "^14.2.5",
     "framer-motion": "12.0.0-alpha.1",
