@@ -7,12 +7,16 @@ import ReactDOM from "react-dom";
 import Anchor from "./Clickables/Anchor";
 import { Github } from "./Icons";
 import CustomImage from "./CustomImage";
+import { twMerge } from "tailwind-merge";
 
-const DEFAULT_CONTENT = "<p>a</p><a data-component='Anchor' href='v'>varos</a><p>c</p><p>d</p>";
+const DEFAULT_CONTENT = "<p><br></p>";
 
-export default function Editor() {
+type TEditorProps = {classNames?: Partial<Record<"container" | "content" | "contentEditable", string>>}
+export default function Editor(props: TEditorProps) {
   const [content, setContent] = useState<string>(DEFAULT_CONTENT);
   const editorRef = useRef<HTMLDivElement>(null);
+
+  console.log(content);
 
   const handleInput = useCallback(() => {
     if (editorRef.current) {
@@ -150,7 +154,7 @@ export default function Editor() {
   };
 
   return (
-    <div>
+    <div className={twMerge("flex flex-col gap-2", props.classNames?.container)}>
       <div className="flex flex-wrap gap-2">
         <button onClick={() => formatText("bold")}>Bold</button>
         <button onClick={() => formatText("italic")}>Italic</button>
@@ -164,7 +168,7 @@ export default function Editor() {
         contentEditable
         onInput={handleInput}
         onKeyDown={handleKeyDown}
-        className="min-h-[350px] rounded-md border border-neutral-700 bg-neutral-900 p-2 focus:!outline-neutral-800"
+        className="min-h-[350px] rounded-md border border-neutral-700 bg-neutral-950 p-2 focus:!outline-neutral-800"
         content={DEFAULT_CONTENT || "<p><br/></p>"}
       />
       <RichTextRenderer content={content} />

@@ -1,16 +1,26 @@
 import Main from "@/shared/components/Main";
 import * as Sections from "./_pageResources/sections";
 import buildMetadata from "@/server/utils/buildMetadata";
+import { Fragment } from "react";
+import Nav from "../_layoutResources/Nav/Nav";
+import AnchorsDesktop from "./_pageResources/NavAnchors/AnchorsDesktop";
+import AnchorsMobile from "./_pageResources/NavAnchors/AnchorsMobile";
 
 export default function Home() {
   return (
-    <Main>
-      <Sections.Introduction />
-      <Sections.Skills />
-      <Sections.Exp />
-      <Sections.Projects />
-      <Sections.Contact />
-    </Main>
+    <Fragment>
+      <Nav>
+        <AnchorsDesktop />
+        <AnchorsMobile />
+      </Nav>
+      <Main>
+        <Sections.Introduction />
+        <Sections.Skills />
+        <Sections.Exp />
+        <Sections.Projects />
+        <Sections.Contact />
+      </Main>
+    </Fragment>
   );
 }
 

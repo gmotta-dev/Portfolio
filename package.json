@@ -9,38 +9,44 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^14.2.5",
+    "@babel/standalone": "^7.25.7",
     "@tiptap/core": "^2.5.8",
     "@tiptap/extension-link": "^2.5.8",
     "@tiptap/pm": "^2.5.8",
     "@tiptap/react": "^2.5.8",
     "@tiptap/starter-kit": "^2.5.8",
+    "babel-plugin-react-compiler": "^19.0.0-beta-9ee70a1-20241017",
     "framer-motion": "^11.2.12",
     "html-react-parser": "^5.1.12",
     "htmlparser2": "^9.1.0",
     "jsdom": "^24.1.1",
     "markdown-to-jsx": "^7.4.7",
-    "next": "14.2.3",
+    "next": "^15.0.0-rc.1",
     "next-mdx-remote": "^5.0.0",
     "nodemailer": "^6.9.14",
     "prismjs": "^1.29.0",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "^19.0.0-rc-65a56d0e-20241020",
     "recharts": "^2.12.7",
     "tailwind-merge": "^2.3.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/babel__standalone": "^7.1.7",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.15",
     "@types/prismjs": "^1.26.4",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "postcss": "^8",
     "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.6.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
   }
 }

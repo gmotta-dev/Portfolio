@@ -1,6 +1,6 @@
 import { Bebas_Neue, Poppins } from "next/font/google";
 
-import "./globals.css";
+import "./global.css";
 
 import React from "react";
 import Footer from "./_layoutResources/Footer";
@@ -27,7 +27,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${poppins.variable} ${bebasNeue.variable}`} style={{ ...poppins.style }}>
       <body className="bg-neutral-950 text-neutral-100">
-        <Nav />
         {children}
         <Footer />
         <UmamiScript />

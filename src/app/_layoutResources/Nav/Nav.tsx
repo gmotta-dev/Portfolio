@@ -1,17 +1,17 @@
 import ContentWrapper from "@/shared/components/ContentWrapper";
 import MyLogo from "@/shared/components/Icons/MyLogo";
-import AnchorsDesktop from "./AnchorsDesktop";
-import AnchorsMobile from "./AnchorsMobile";
+import AnchorsDesktop from "../../(index)/_pageResources/NavAnchors/AnchorsDesktop";
+import AnchorsMobile from "../../(index)/_pageResources/NavAnchors/AnchorsMobile";
+import { ReactNode } from "react";
 
-export default function Nav() {
+export default function Nav(props: { children: ReactNode }) {
   return (
-    <nav className="relative flex h-[60px] z-[100]">
-      <div className="fixed left-1/2 bg-neutral-950  top-0 flex w-full justify-between py-3 -translate-x-1/2">
-       <ContentWrapper element="div" className="flex justify-between items-center">
-        <MyLogo className="h-11 w-10" />
-        <AnchorsDesktop />
-        <AnchorsMobile />
-      </ContentWrapper>
+    <nav className="relative z-[100] flex h-[60px]">
+      <div className="fixed left-1/2 top-0 flex w-full -translate-x-1/2 justify-between bg-neutral-950 py-3">
+        <ContentWrapper element="div" className="flex items-center justify-between">
+          <MyLogo className="h-11 w-10" />
+          {props.children}
+        </ContentWrapper>
       </div>
     </nav>
   );
