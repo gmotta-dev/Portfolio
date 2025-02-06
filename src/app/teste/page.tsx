@@ -52,6 +52,6 @@ const getData = async () =>
           .then((json) => json.dateTime),
       };
     },
-    ["teste"],
-    { revalidate: 120, tags: ["teste"] },
+    ["teste-key"],
+    { revalidate: 60, tags: ["teste"] },
   )();
