@@ -14,7 +14,7 @@ export default function Preview() {
 
 const PreviewAnchor = (props: ComponentProps<"a">) => {
   return (
-    <Anchor {...props} stylization={{ theme: "primary", icon: { el: ArrowRight } }} href="/files/cv.pdf">
+    <Anchor {...props} stylization={{ theme: "primary", icon: { el: ArrowRight } }} href="/files/cv.pdf" download>
       Download CV
     </Anchor>
   );

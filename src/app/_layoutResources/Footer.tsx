@@ -41,7 +41,7 @@ const anchors = [
   { label: "CONTACT", href: "#contact" },
 ];
 
-type TGroup = { name: string; anchors: { label: string; href: string; icon: React.ElementType; type: "a" | "span" }[] };
+type TGroup = { name: string; anchors: { label: string; href: string; icon: React.ElementType; type: "a" | "span"; download?: boolean }[] };
 const Group = (props: TGroup) => {
   return (
     <li className="flex flex-col gap-4">
@@ -49,7 +49,7 @@ const Group = (props: TGroup) => {
       <ul className="flex flex-col gap-3">
         {props.anchors.map((el, index) => (
           <li key={index}>
-            <el.type href={el.href} className="group flex items-center gap-4" target="_blank" rel="noreferrer">
+            <el.type href={el.href} className="group flex items-center gap-4" target="_blank" rel="noreferrer" download={el.download}>
               <el.icon className="h-[24px] w-[24px] text-neutral-50" />
               <span className="text-neutral-400 transition-colors duration-300 group-hover:text-neutral-100">{el.label}</span>
             </el.type>
@@ -74,7 +74,7 @@ const groups: TGroup[] = [
     anchors: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-p-5b6024390/", icon: Linkedin, type: "a" },
       { label: "Github", href: "https://github.com/gmotta-dev", icon: Github, type: "a" },
-      { label: "CV", href: "/files/cv.pdf", icon: UserProfile, type: "a" },
+      { label: "CV", href: "/files/cv.pdf", icon: UserProfile, type: "a", download: true },
     ],
   },
 ];
