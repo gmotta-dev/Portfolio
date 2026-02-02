@@ -74,7 +74,7 @@ const groups: TGroup[] = [
     anchors: [
       { label: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-p-5b6024390/", icon: Linkedin, type: "a" },
       { label: "Github", href: "https://github.com/gmotta-dev", icon: Github, type: "a" },
-      { label: "CV", href: "/files/cv.pdf", icon: UserProfile, type: "a", download: true },
+      { label: "CV", href: "/files/CV.pdf", icon: UserProfile, type: "a", download: true },
     ],
   },
 ];
