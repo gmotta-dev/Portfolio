@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 import { projectsConfigs, TProjectConfig } from "../config";
 import ExpandableContent from "./ExpandableContent";
 import { Github, LinkAlt } from "@/shared/components/Icons";
+import Image from "next/image";
 
 // All the content in this File in rendered on the Server due to how Next js and React handle the hydration process
 // Only the Files inside the ExpandableContent component are hydrated on the Client
@@ -24,7 +25,7 @@ export default function ProjectsMobile() {
 const ProjectItem: FC<TProjectConfig> = (props) => {
   return (
     <li className="relative flex flex-col items-start justify-between gap-4 rounded-lg md:flex-row md:justify-between md:gap-6 md:transition-all md:duration-300">
-      <CustomImage width={682} height={317} src={props.thumbImg} alt={props.name} className="grayscale md:min-w-[320px]" />
+      <Image width={682} height={317} src={`/images/${props.thumbImg}`} alt={props.name} className="grayscale md:min-w-[320px]" />
       <div className="flex w-full flex-col">
         <div className="flex items-start gap-4">
           <h2 className="font-bebas-neue text-3xl tracking-wide">{props.name}</h2>

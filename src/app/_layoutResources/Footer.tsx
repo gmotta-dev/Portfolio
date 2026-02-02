@@ -65,16 +65,16 @@ const groups: TGroup[] = [
     name: "Info",
     anchors: [
       { label: "Rio de Janeiro, Brazil", href: "about-me", icon: Location, type: "span" },
-      { label: "gmotta.dev@outlook.com", href: "mailto:gmotta.dev@outlook.com", icon: Email, type: "a" },
+      { label: "gabriel.pmtt@proton.me", href: "mailto:gabriel.pmtt@proton.me", icon: Email, type: "a" },
       { label: "+55 21 97426-4416", href: "tel:+5521974264416", icon: Phone, type: "a" },
     ],
   },
   {
     name: "Links",
     anchors: [
-      { label: "LinkedIn", href: "https://www.linkedin.com/in/gpmotta21/", icon: Linkedin, type: "a" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/gabriel-p-5b6024390/", icon: Linkedin, type: "a" },
       { label: "Github", href: "https://github.com/gmotta-dev", icon: Github, type: "a" },
-      { label: "CV", href: process.env.NEXT_PUBLIC_CLOUDFRONT_URL + "/files/gabriel-motta-cv.pdf", icon: UserProfile, type: "a" },
+      { label: "CV", href: "/files/cv.pdf", icon: UserProfile, type: "a" },
     ],
   },
 ];

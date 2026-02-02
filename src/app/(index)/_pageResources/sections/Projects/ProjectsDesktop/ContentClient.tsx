@@ -7,11 +7,11 @@ import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadius
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 import Anchor from "@/shared/components/Clickables/Anchor";
-import { projectsConfigs, TProjectConfig } from "../config";
+import { projectCategories, projectsConfigs, TProjectConfig } from "../config";
 
 export default function ContentClient() {
-  const [tabs, setTabs] = useState<TTab[]>([{ icon: React, label: projectsConfigs[1].name }]);
-  const [content, setContent] = useState<TProjectConfig>(projectsConfigs[1]);
+  const [tabs, setTabs] = useState<TTab[]>([{ icon: React, label: projectsConfigs[0].name }]);
+  const [content, setContent] = useState<TProjectConfig>(projectsConfigs[0]);
 
   const onCloseTab = (currTab: TTab) => {
     if (tabs.length === 1) return;
@@ -46,6 +46,7 @@ export default function ContentClient() {
 
 const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; content: TProjectConfig; setContent: (content: TProjectConfig) => void }) => {
   const [hasClicked, setHasClicked] = useState(false);
+  const [expandedCategories, setExpandedCategories] = useState<string[]>(["Current Job", "Freelance Projects", "SaaS Projects", "Side Projects"]);
 
   const handleAddTab = (tab: TProjectConfig) => {
     props.setContent(tab);
@@ -55,6 +56,10 @@ const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; conten
     props.setTabs([...props.tabs, { icon: React, label: tab.name }]);
   };
 
+  const toggleCategory = (categoryName: string) => {
+    setExpandedCategories((prev) => (prev.includes(categoryName) ? prev.filter((c) => c !== categoryName) : [...prev, categoryName]));
+  };
+
   return (
     <div className="w-full max-w-[250px] border-r border-r-neutral-700 bg-neutral-900">
       <ul className="flex justify-center gap-6 border-y border-neutral-700 bg-neutral-800 py-[6px]">
@@ -62,24 +67,47 @@ const Explorer = (props: { tabs: TTab[]; setTabs: (tabs: TTab[]) => void; conten
           <Icon key={index} className={twMerge("h-5 w-5 cursor-pointer text-neutral-500 transition-colors hover:text-neutral-200", index === 0 && "text-neutral-200")} />
         ))}
       </ul>
-      <p className="flex w-full items-center gap-2 bg-neutral-700 px-3 py-2 text-sm text-neutral-400">
-        <ArrowDown className="w-2" />
-        Portfolio Projects
-      </p>
-      <ul className="flex flex-col">
-        {projectsConfigs.map((file) => (
-          <li
-            className={twMerge(
-              "flex cursor-pointer items-center gap-2 px-4 py-2 text-sm text-neutral-400 transition-colors",
-              props.content.name === file.name ? "bg-mostard-300 text-neutral-950" : "hover:bg-neutral-950/50",
-              !hasClicked && props.content.name === file.name ? "animate-pulse" : "",
-            )}
-            onClick={() => handleAddTab(file)}>
-            <React className="h-4 w-4" />
-            {file.name}
-          </li>
+      <div className="flex flex-col">
+        {projectCategories.map((category) => (
+          <div key={category.name}>
+            <button
+              onClick={() => toggleCategory(category.name)}
+              className="flex w-full cursor-pointer items-center gap-2 bg-neutral-700 px-3 py-2 text-sm text-neutral-400 transition-colors hover:bg-neutral-600">
+              <ArrowDown className={twMerge("w-2 transition-transform", !expandedCategories.includes(category.name) && "-rotate-90")} />
+              {category.name}
+              {category.projects.length > 0 && <span className="ml-auto text-xs text-neutral-500">({category.projects.length})</span>}
+            </button>
+            <AnimatePresence>
+              {expandedCategories.includes(category.name) && (
+                <motion.ul
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex flex-col overflow-hidden">
+                  {category.projects.length === 0 ? (
+                    <li className="px-6 py-2 text-xs italic text-neutral-500">No projects yet</li>
+                  ) : (
+                    category.projects.map((file) => (
+                      <li
+                        key={file.name}
+                        className={twMerge(
+                          "flex cursor-pointer items-center gap-2 px-6 py-2 text-sm text-neutral-400 transition-colors",
+                          props.content.name === file.name ? "bg-mostard-300 text-neutral-950" : "hover:bg-neutral-950/50",
+                          !hasClicked && props.content.name === file.name ? "animate-pulse" : "",
+                        )}
+                        onClick={() => handleAddTab(file)}>
+                        <React className="h-4 w-4" />
+                        {file.name}
+                      </li>
+                    ))
+                  )}
+                </motion.ul>
+              )}
+            </AnimatePresence>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
@@ -90,8 +118,9 @@ const Content = (props: TProjectConfig) => {
       <div className="relative flex h-[300px] items-end px-8 py-4">
         <div
           className="pointer-events-none absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 grayscale filter"
-          style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_CLOUDFRONT_URL}/images/${props.backgroundImg})` }}
+          style={{ backgroundImage: `url(images/${props.backgroundImg})` }}
         />
+        
         <div className="z-10 flex w-full items-center justify-between">
           <h3 className="relative font-bebas-neue text-[80px] font-bold leading-[64px] tracking-widest text-mostard-300">{props.name}</h3>
           <div className="mt-8 flex max-w-[320px] flex-1 gap-4">
