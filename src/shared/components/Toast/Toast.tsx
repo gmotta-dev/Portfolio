@@ -13,7 +13,7 @@ import CheckmarkFilled from "../Icons/carbon/CheckMarkFilled";
 import ErrorFilled from "../Icons/carbon/ErrorFilled";
 import { Close } from "../Icons";
 
-export default function Toast({ toasts, removeToast }: ReturnType<typeof useToast> & TToastComponentAndHookCommonTypes): JSX.Element | null {
+export default function Toast({ toasts, removeToast }: ReturnType<typeof useToast> & TToastComponentAndHookCommonTypes) {
   const [hovering, setHovering] = useState(false);
   const [height, setHeight] = useState(0);
   const [isClient, setIsClient] = useState(false);
