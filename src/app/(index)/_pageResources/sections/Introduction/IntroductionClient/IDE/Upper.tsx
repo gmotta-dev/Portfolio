@@ -4,7 +4,7 @@ import { twMerge } from "tailwind-merge";
 export default function Upper() {
   return (
     <div className="flex items-center justify-between bg-neutral-900 p-2 text-neutral-300">
-      <ul className="flex gap-4 text-xs md:text-sm [&_li:even]:!hidden">
+      <ul className="flex gap-4 text-xs md:text-sm [&_li:nth-child(even)]:!hidden">
         {anchors.map((anchor, index) => (
           <li key={index} className={twMerge("cursor-pointer transition-colors hover:text-neutral-500", index > 3 && "hidden md:inline")}>
             {anchor}
